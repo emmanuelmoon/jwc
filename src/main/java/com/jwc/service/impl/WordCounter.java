@@ -38,6 +38,25 @@ public class WordCounter implements Counter {
 
     @Override
     public int count() {
-        return 0;
+        int total = 0;
+        try (InputStreamReader isr = new InputStreamReader(System.in, Charset.defaultCharset().displayName());) {
+            BufferedReader reader = new BufferedReader(isr);
+
+            String str;
+
+            while ((str = reader.readLine()) != null) {
+                str = str.trim();
+                if (str.isEmpty()) {
+                    continue;
+                }
+                String[] words = str.split("\\s+");
+
+                total += words.length;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return total;
     }
 }
