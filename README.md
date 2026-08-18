@@ -34,28 +34,18 @@ The native executable is automatically compiled during the standard build proces
 
 ## Running the Application
 
-### Using Maven
-
-Run directly with Maven:
-
-```bash
-mvn exec:java -Dexec.mainClass="com.jwc.Main" -Dexec.args="[options] [file]"
-```
-
-### Using JAR
-
-After building:
-
-```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar [options] [file]
-```
-
-### Using Native Executable
-
-If you compiled a native executable:
+After building, run the native executable:
 
 ```bash
 ./target/jwc [options] [file]
+```
+
+### Alternative: Using Maven
+
+You can also run directly with Maven:
+
+```bash
+mvn exec:java -Dexec.mainClass="com.jwc.Main" -Dexec.args="[options] [file]"
 ```
 
 ## Usage
@@ -77,32 +67,32 @@ jwc [OPTIONS] [FILE]
 
 **Count lines in a file:**
 ```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar -l file.txt
+./target/jwc -l file.txt
 ```
 
 **Count words in a file:**
 ```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar -w file.txt
+./target/jwc -w file.txt
 ```
 
 **Count bytes in a file:**
 ```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar -c file.txt
+./target/jwc -c file.txt
 ```
 
 **Count characters in a file:**
 ```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar -m file.txt
+./target/jwc -m file.txt
 ```
 
 **Get multiple metrics at once:**
 ```bash
-java -jar target/jwc-1.0-SNAPSHOT.jar -l -w -c file.txt
+./target/jwc -l -w -c file.txt
 ```
 
 **Count from stdin:**
 ```bash
-cat file.txt | java -jar target/jwc-1.0-SNAPSHOT.jar -l
+cat file.txt | ./target/jwc -l
 ```
 
 ## Project Structure
@@ -137,7 +127,3 @@ jwc/
 - **Build Tool**: Maven
 - **CLI Framework**: PicoCLI 4.7.7
 - **Native Compilation**: GraalVM Native Image
-
-## License
-
-This project is provided as-is for educational and development purposes.
